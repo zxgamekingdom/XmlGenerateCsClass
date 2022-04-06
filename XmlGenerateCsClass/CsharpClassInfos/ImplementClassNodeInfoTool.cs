@@ -59,7 +59,7 @@ internal readonly struct ImplementClassNodeInfoTool
 
             _classNode.PropertyNodes!.Add(new CsharpPropertyNode
             {
-                IsArray = nodes.Length > 0,
+                IsArray = nodes.Length > 1,
                 XmlSourceName = nodes[0].Name,
                 XmlType = XmlType.Element,
                 Type = childClassNode.Name,
