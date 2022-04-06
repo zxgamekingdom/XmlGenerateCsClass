@@ -14,7 +14,6 @@ internal class CSharpKeywords
         new(new CSharpKeywords());
 
     /// <summary>
-    ///
     /// </summary>
     /// <remarks>线程安全</remarks>
     public static CSharpKeywords Instance
@@ -115,5 +114,15 @@ internal class CSharpKeywords
     };
 
     public bool IsKeyword(string name) { return Keywords.Contains(name); }
+
+    /// <summary>
+    /// 将C#关键字的字符串转换为@C#关键字的字符串
+    /// </summary>
+    /// <param name="str"></param>
+    /// <returns></returns>
+    public static string ConvertKeywordString(string str)
+    {
+        return Instance.IsKeyword(str) ? $"@{str}" : str;
+    }
 
 }

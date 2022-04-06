@@ -18,11 +18,8 @@ internal readonly struct ImplementClassNodeInfoTool
 
     private readonly List<XmlElementNode>? _xmlNodes;
 
-    private readonly CSharpKeywords _keywords;
-
     public ImplementClassNodeInfoTool(CsharpClassNode classNode, CsharpTree csharpTree)
     {
-        _keywords = CSharpKeywords.Instance;
         _classNode = classNode;
         _csharpTree = csharpTree;
         _xmlNodes = _classNode.XmlElementNodes;
@@ -73,7 +70,7 @@ internal readonly struct ImplementClassNodeInfoTool
 
     private string XmlElementNode获取属性名(string name)
     {
-        if (_keywords.IsKeyword(name)) { name = $"@{name}"; }
+        name = CSharpKeywords.ConvertKeywordString(name);
 
         if (XmlElementNode属性名是否有效(name)) return name;
 
@@ -125,7 +122,7 @@ internal readonly struct ImplementClassNodeInfoTool
 
     private string XmlAttributeNode获取属性名(string name)
     {
-        if (_keywords.IsKeyword(name)) { name = $"@{name}"; }
+        name = CSharpKeywords.ConvertKeywordString(name);
 
         if (XmlAttributeNode属性名是否有效(name)) return name;
 

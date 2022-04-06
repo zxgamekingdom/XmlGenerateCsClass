@@ -68,7 +68,7 @@ public class CsharpTree
 
     private string 获取类名(string name)
     {
-        if (CSharpKeywords.Instance.IsKeyword(name)) { name = $"@{name}"; }
+        name = CSharpKeywords.ConvertKeywordString(name);
 
         if (是否存在类名(name) is false) return name;
 
