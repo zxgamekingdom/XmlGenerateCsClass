@@ -58,7 +58,11 @@ public class CsharpTree
         if (xmlElementNodes.Any(x => x.Name != name))
             throw new ArgumentException("xmlElementNodes中的名字不一致");
 
-        var node = new CsharpClassNode {Name = 获取类名(name), XmlSourceName = name};
+        var node = new CsharpClassNode
+        {
+            Name = 获取类名(xmlElementNodes[0]), XmlSourceName = name
+        };
+
         node.XmlElementNodes ??= new List<XmlElementNode>();
         node.XmlElementNodes.AddRange(xmlElementNodes);
         ClassNodes!.Add(node);
@@ -66,9 +70,14 @@ public class CsharpTree
         return node;
     }
 
-    private string 获取类名(string name)
+    private string 获取类名(XmlElementNode xmlElementNode)
     {
+        var name = xmlElementNode.Name;
         name = CSharpKeywords.ConvertKeywordString(name);
+
+        if (是否存在类名(name) is false) return name;
+
+        name = 合成父节点名(xmlElementNode);
 
         if (是否存在类名(name) is false) return name;
 
@@ -82,6 +91,21 @@ public class CsharpTree
         }
 
         throw new InvalidOperationException();
+    }
+
+    private string 合成父节点名(XmlElementNode xmlElementNode)
+    {
+        var stack = new Stack<string>();
+        stack.Push(xmlElementNode.Name);
+        var buff = xmlElementNode.Parent;
+
+        while (buff is { })
+        {
+            stack.Push(buff.Name);
+            buff = buff.Parent;
+        }
+
+        return string.Join('_', stack);
     }
 
     private bool 是否存在类名(string name)

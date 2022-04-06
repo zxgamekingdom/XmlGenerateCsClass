@@ -1,6 +1,5 @@
 ﻿#region
 
-using System.Collections.Generic;
 using XmlGenerateCsClass.CsharpClassInfos;
 using XmlGenerateCsClass.XmlInfos;
 
