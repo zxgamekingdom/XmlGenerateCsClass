@@ -14,6 +14,8 @@ public class CsharpClassNode
 
     public string Name { get; set; }
 
+    public Stack<string>? XmlNodeNameChain { get; set; }
+
     public List<XmlElementNode>? XmlElementNodes { get; set; }
 
     public List<CsharpPropertyNode>? PropertyNodes { get; set; }
@@ -25,6 +27,10 @@ public class CsharpClassNode
     public string ToCsharpCode()
     {
         var s = new StringBuilder(1000);
+
+        if (XmlNodeNameChain != null)
+            s.AppendLine($"//{string.Join('/', XmlNodeNameChain)}");
+
         if (IsRoot) s.AppendLine($"[XmlRoot(\"{XmlSourceName}\")]");
         s.AppendLine($"public class {Name}");
         s.AppendLine("{");
