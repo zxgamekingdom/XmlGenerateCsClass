@@ -1,4 +1,4 @@
-﻿namespace 多Xml文档建立CShape类;
+﻿namespace 多Xml文档建立CShape类.Tools;
 
 //字典集合
 internal class DictionaryCollection<TK, TV> where TK : notnull
@@ -21,5 +21,7 @@ internal class DictionaryCollection<TK, TV> where TK : notnull
 
         list.Add(value);
     }
+
+    public bool ContainsKey(TK k) { return _dictionary.ContainsKey(k); }
 
 }

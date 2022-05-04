@@ -1,4 +1,4 @@
-﻿namespace 多Xml文档建立CShape类;
+﻿namespace 多Xml文档建立CShape类.Extensions;
 
 public static class ConsoleExtensions
 {

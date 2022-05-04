@@ -1,12 +1,10 @@
 ﻿#region
 
-using System.Collections.Immutable;
 using System.Xml;
-using Newtonsoft.Json;
 
 #endregion
 
-namespace 多Xml文档建立CShape类;
+namespace 多Xml文档建立CShape类.Trees.Xmls;
 
 /// <summary>
 ///     多Xml文档节点树
@@ -97,111 +95,6 @@ public class MultipleXmlDocumentNodeTree
         }
 
         return isArray;
-    }
-
-}
-
-public class XmlNode
-{
-
-    internal XmlNode(bool isArray, XmlTempNode[] xmlTempNodes)
-    {
-        var hashSet = new HashSet<string>();
-
-        foreach (var s in xmlTempNodes
-            .SelectMany(x => x.XmlElement.Attributes.OfType<XmlAttribute>())
-            .Select(x => x.Name))
-            hashSet.Add(s);
-
-        属性 = hashSet.ToImmutableArray();
-        IsArray = isArray;
-        var first = xmlTempNodes.First();
-        ParentId = first.Parent?.Identifier;
-        CurrentId = first.Identifier;
-        Name = first.XmlElement.Name;
-    }
-
-    [JsonIgnore]
-    public XmlNode? Parent { get; internal set; }
-
-    public string Name { get; }
-
-    public bool IsArray { get; }
-
-    public ImmutableArray<string> 属性 { get; }
-
-    public List<XmlNode> Children { get; } = new();
-
-    [JsonIgnore]
-    public XmlIdentifier CurrentId { get; }
-
-    [JsonIgnore]
-    public XmlIdentifier? ParentId { get; }
-
-}
-
-/// <summary>
-///     xml临时节点
-/// </summary>
-internal class XmlTempNode
-{
-
-    public XmlTempNode(XmlTempNode? parent, XmlElement xmlElement)
-    {
-        Parent = parent;
-        XmlElement = xmlElement;
-        var xmlIdentifier = new XmlIdentifier(xmlElement);
-        Identifier = xmlIdentifier;
-    }
-
-    public XmlIdentifier Identifier { get; }
-
-    [JsonIgnore]
-    public XmlTempNode? Parent { get; }
-
-    [JsonIgnore]
-    public XmlElement XmlElement { get; }
-
-    public List<XmlTempNode> Children { get; } = new();
-
-}
-
-/// <summary>
-///     xml临时节点树
-/// </summary>
-internal class XmlTempNodeTree
-{
-
-    public readonly DictionaryCollection<int, XmlTempNode> DictionaryCollection = new();
-
-    public XmlTempNode? Root => DictionaryCollection[0].Single();
-
-    public void Build(XmlElement root)
-    {
-        var node = new XmlTempNode(default, root);
-        DictionaryCollection.Add(0, node);
-
-        for (var i = 0; i < int.MaxValue; i++)
-        {
-            var nodes = DictionaryCollection[i].ToArray();
-
-            if (nodes.Any() is false) return;
-
-            foreach (var tempNode in nodes)
-            {
-                var xmlElements = tempNode.XmlElement.ChildNodes.OfType<XmlElement>()
-                    .ToArray();
-
-                if (xmlElements.Any() is false) continue;
-
-                foreach (var xmlElement in xmlElements)
-                {
-                    var xmlTempNode = new XmlTempNode(tempNode, xmlElement);
-                    tempNode.Children.Add(xmlTempNode);
-                    DictionaryCollection.Add(i + 1, xmlTempNode);
-                }
-            }
-        }
     }
 
 }

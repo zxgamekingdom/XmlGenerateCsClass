@@ -1,10 +1,14 @@
-﻿using System.Collections.Immutable;
+﻿#region
+
+using System.Collections.Immutable;
 using System.Xml;
 
-namespace 多Xml文档建立CShape类;
+#endregion
+
+namespace 多Xml文档建立CShape类.Trees.Xmls;
 
 /// <summary>
-/// Xml标识
+///     Xml标识
 /// </summary>
 public class XmlIdentifier
 {

@@ -4,6 +4,8 @@ using System;
 
 #endregion
 
+namespace XmlGenerateCsClass;
+
 public static class ConsoleExtensions
 {
 

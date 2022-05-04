@@ -1,38 +1,9 @@
-﻿#region
+﻿namespace 多Xml文档建立CShape类.Trees.CSharps;
 
-using System;
-using System.Collections.Generic;
-
-#endregion
-
-namespace XmlGenerateCsClass.CsharpClassInfos;
-
-internal class CSharpKeywords
+internal class CSharpKeyword
 {
 
-    private static readonly WeakReference<CSharpKeywords> WeakReference =
-        new(new CSharpKeywords());
-
-    /// <summary>
-    /// </summary>
-    /// <remarks>线程安全</remarks>
-    public static CSharpKeywords Instance
-    {
-        get
-        {
-            lock (WeakReference)
-            {
-                if (WeakReference.TryGetTarget(out var target)) return target;
-
-                var cSharpKeywords = new CSharpKeywords();
-                WeakReference.SetTarget(cSharpKeywords);
-
-                return cSharpKeywords;
-            }
-        }
-    }
-
-    private HashSet<string> Keywords { get; } = new()
+    private readonly HashSet<string> Keywords = new()
     {
         "abstract",
         "as",
@@ -110,19 +81,57 @@ internal class CSharpKeywords
         "virtual",
         "void",
         "volatile",
-        "while"
+        "while",
+        "add",
+        "and",
+        "alias",
+        "ascending",
+        "args",
+        "async",
+        "await",
+        "by",
+        "descending",
+        "dynamic",
+        "equals",
+        "from",
+        "get",
+        "global",
+        "group",
+        "init",
+        "into",
+        "join",
+        "let",
+        "managed",
+        "nameof",
+        "nint",
+        "not",
+        "notnull",
+        "nuint",
+        "on",
+        "or",
+        "orderby",
+        "partial",
+        "partial",
+        "record",
+        "remove",
+        "select",
+        "set",
+        "unmanaged",
+        "unmanaged",
+        "value",
+        "var",
+        "when",
+        "where",
+        "where",
+        "with",
+        "yield"
     };
 
-    public bool IsKeyword(string name) { return Keywords.Contains(name); }
-
-    /// <summary>
-    ///     将C#关键字的字符串转换为@C#关键字的字符串
-    /// </summary>
-    /// <param name="str"></param>
-    /// <returns></returns>
-    public static string ConvertKeywordString(string str)
+    public string 处理关键字(string str)
     {
-        return Instance.IsKeyword(str) ? $"@{str}" : str;
+        if (Keywords.Contains(str)) return $"@{str}";
+
+        return str;
     }
 
 }
