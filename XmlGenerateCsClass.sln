@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlGenerateCsClass", "XmlGenerateCsClass\XmlGenerateCsClass.csproj", "{5F72685B-0BE2-4BC7-B068-45444CC1816F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "多Xml文档建立CShape类", "多Xml文档建立CShape类\多Xml文档建立CShape类.csproj", "{5FC09015-49F7-436D-9F31-A216249E89C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleXmlDocumentsToCsClass", "MultipleXmlDocumentsToCsClass\MultipleXmlDocumentsToCsClass.csproj", "{5FC09015-49F7-436D-9F31-A216249E89C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

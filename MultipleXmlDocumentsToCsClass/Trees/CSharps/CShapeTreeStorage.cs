@@ -1,7 +1,7 @@
-﻿using 多Xml文档建立CShape类.Tools;
-using 多Xml文档建立CShape类.Trees.Xmls;
+﻿using MultipleXmlDocumentsToCsClass.Tools;
+using MultipleXmlDocumentsToCsClass.Trees.Xmls;
 
-namespace 多Xml文档建立CShape类.Trees.CSharps;
+namespace MultipleXmlDocumentsToCsClass.Trees.CSharps;
 
 /// <summary>
 ///     CShapeTree存储类

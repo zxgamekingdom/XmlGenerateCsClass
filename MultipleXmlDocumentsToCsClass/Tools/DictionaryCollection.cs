@@ -1,4 +1,4 @@
-﻿namespace 多Xml文档建立CShape类.Tools;
+﻿namespace MultipleXmlDocumentsToCsClass.Tools;
 
 //字典集合
 internal class DictionaryCollection<TK, TV> where TK : notnull

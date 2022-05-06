@@ -1,4 +1,4 @@
-﻿namespace 多Xml文档建立CShape类.Extensions;
+﻿namespace MultipleXmlDocumentsToCsClass.Extensions;
 
 public static class ConsoleExtensions
 {

@@ -2,9 +2,9 @@
 //
 // using System.Xml;
 // using System.Xml.Serialization;
-// using 多Xml文档建立CShape类.Extensions;
-// using 多Xml文档建立CShape类.Trees.CSharps;
-// using 多Xml文档建立CShape类.Trees.Xmls;
+// using MultipleXmlDocumentsToCsClass.Extensions;
+// using MultipleXmlDocumentsToCsClass.Trees.CSharps;
+// using MultipleXmlDocumentsToCsClass.Trees.Xmls;
 //
 // #endregion
 //

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 #endregion
 
-namespace 多Xml文档建立CShape类.Trees.Xmls;
+namespace MultipleXmlDocumentsToCsClass.Trees.Xmls;
 
 /// <summary>
 ///     xml临时节点

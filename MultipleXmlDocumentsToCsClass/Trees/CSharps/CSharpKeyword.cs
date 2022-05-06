@@ -1,4 +1,4 @@
-﻿namespace 多Xml文档建立CShape类.Trees.CSharps;
+﻿namespace MultipleXmlDocumentsToCsClass.Trees.CSharps;
 
 internal class CSharpKeyword
 {

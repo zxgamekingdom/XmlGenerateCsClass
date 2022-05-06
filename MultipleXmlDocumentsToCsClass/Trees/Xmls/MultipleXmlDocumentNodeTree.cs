@@ -4,7 +4,7 @@ using System.Xml;
 
 #endregion
 
-namespace 多Xml文档建立CShape类.Trees.Xmls;
+namespace MultipleXmlDocumentsToCsClass.Trees.Xmls;
 
 /// <summary>
 ///     多Xml文档节点树

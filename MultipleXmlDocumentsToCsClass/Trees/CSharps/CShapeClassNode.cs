@@ -1,9 +1,9 @@
 ﻿using System.Collections.Immutable;
 using System.Text;
 using System.Xml.Serialization;
-using 多Xml文档建立CShape类.Trees.Xmls;
+using MultipleXmlDocumentsToCsClass.Trees.Xmls;
 
-namespace 多Xml文档建立CShape类.Trees.CSharps;
+namespace MultipleXmlDocumentsToCsClass.Trees.CSharps;
 
 public class CShapeClassNode
 {

@@ -1,11 +1,11 @@
 ﻿#region
 
 using System.Collections.Immutable;
-using 多Xml文档建立CShape类.Trees.Xmls;
+using MultipleXmlDocumentsToCsClass.Trees.Xmls;
 
 #endregion
 
-namespace 多Xml文档建立CShape类.Trees.CSharps;
+namespace MultipleXmlDocumentsToCsClass.Trees.CSharps;
 
 public class CShapeTree
 {
